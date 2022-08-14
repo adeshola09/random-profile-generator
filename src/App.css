@@ -1,38 +1,96 @@
-.App {
-  text-align: center;
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap"); */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #f7f6f8;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-wrapper-cover:hover {
+  transform: translate(100%);
+  font-size: 0px;
+  background-color: #0914dc;
+  color: #c38ef8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-wrapper {
+  height: 500px;
+  width: 300px;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 10px 10px 20px rgba(72, 0, 106, 0.55);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
+  animation: colorChanger 1s infinite;
 }
 
-.App-link {
-  color: #61dafb;
+.card-wrapper .card-header {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(12, 8, 243);
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-wrapper img {
+  border-radius: 50%;
+  position: absolute;
+  top: 120px;
+  border: 7px solid #ffffff;
+  transition: 2s;
+}
+
+.card-wrapper img:hover {
+  border-radius: 0%;
+  transform: rotate(180deg);
+}
+
+.card-wrapper h1 {
+  font-size: 20px;
+  z-index: 1;
+  font-family: "Roboto Slab", serif;
+  margin-top: 80px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.card-wrapper p {
+  margin-top: 5px;
+  font-style: italic;
+  color: rgb(8, 8, 186);
+}
+
+.card-wrapper span {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card-wrapper button {
+  background-color: #07d079;
+  padding: 10px 30px;
+  border: 1px solid #7800ff;
+  border-radius: 50px;
+  color: #ffffff;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: color 1s;
+  font-weight: 600;
+}
+
+.card-wrapper button:hover {
+  background-color: #ffffff;
+  color: #e66108;
+  border: 1px solid #e66108;
 }

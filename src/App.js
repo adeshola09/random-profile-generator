@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-function App() {
+export const App = () => {
+  const [state, setState] = useState([]);
+
+  const ProfileData = async () => {
+    await axios
+      .get("https://randomuser.me/api")
+      .then((response) => {
+        setState(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => error);
+  };
+
+  useEffect(() => {
+    ProfileData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {state.results?.map((item, index) => (
+        <div className="card-wrapper" key={index}>
+          <div className="card-wrapper-cover">
+            
+          </div>
+          <div className="card-header"></div>
+          <img src={item.picture?.large} alt="pic" />
+          <h1>
+            {item.name?.first} {item.name?.last}
+          </h1>
+          <p>{item.name?.phone}</p>
+          <p>{item.email}</p>
+          <span>{item.location?.timezone?.description}</span>
+          <button onClick={() => ProfileData()}>Next Profile</button>
+        </div>
+      ))}
+    </>
   );
-}
+};
 
 export default App;
